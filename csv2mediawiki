@@ -1,0 +1,36 @@
+#!/usr/bin/env php
+<?php
+/**
+ * This script converts CSV data to MediaWiki tables.
+ *
+ * @author Gabriel Birke <gb@birke-software.de
+ */
+
+use Birke\Table2Pandoc\Csv2Mediawiki;
+
+require_once __DIR__.'/vendor/autoload.php';
+
+if (empty($argv[1])) {
+    $in = STDIN;
+}
+else {
+    if ($argv[1] == "--help" || $argv[1] == "-h") {
+        usage();
+        exit(1);
+    }
+    if(!($in = fopen($argv[1], "r"))) {
+        fwrite(STERR, "Error opening {$argv[1]}, aborting");
+        exit;
+    }
+}
+
+function usage() {
+    global $argv;
+    printf("%s [filename]\n\n", basename($argv[0]));
+    echo "Convert CSV file to MediaWiki.\n";
+    echo "If [filename] is not given, script reads from STDIN.\n";
+    echo "Output is always on STDOUT\n";
+}
+
+$converter = new Csv2Mediawiki();
+$converter->convert($in, STDOUT);

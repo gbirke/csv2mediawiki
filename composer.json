@@ -1,0 +1,17 @@
+{
+    "name": "birke/table2pandoc",
+    "description": "Convert tabular data with Pandoc",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabriel Birke",
+            "email": "gb@birke-software.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Birke\\Table2Pandoc\\": "src/"}
+    },
+    "require": {
+
+    }
+}
