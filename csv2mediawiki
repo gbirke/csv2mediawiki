@@ -18,8 +18,13 @@ else {
         usage();
         exit(1);
     }
+    $inputfile = $argv[1];
+    if (filesize($inputfile) == 0) {
+        fwrite(STDERR, "$inputfile is too small\n");
+        exit;
+    }
     if(!($in = fopen($argv[1], "r"))) {
-        fwrite(STERR, "Error opening {$argv[1]}, aborting");
+        fwrite(STDERR, "Error opening {$argv[1]}, aborting\n");
         exit;
     }
 }

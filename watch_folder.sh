@@ -33,8 +33,9 @@ mkdir -p $OUTDIR
 inotifywait -mr --format '%w %f' -e close_write $INDIR | while read dir file; do
 
     FILECHANGE=${dir}${file}
+    if [ -s $FILECHANGE ]; then
+        OUT_FILE=$OUTDIR$file$OUTPUT_SUFFIX
 
-    OUT_FILE=$OUTDIR$file$OUTPUT_SUFFIX
-
-    ./csv2mediawiki $FILECHANGE | pandoc $PANDOC_OPTS -o $OUT_FILE    
+        ./csv2mediawiki $FILECHANGE | pandoc $PANDOC_OPTS -o $OUT_FILE    
+    fi
 done
