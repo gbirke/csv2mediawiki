@@ -3,7 +3,7 @@ csv2mediawiki
 
 This script converts CSV data to MediaWiki tables. 
 
-This is useful when using Pandoc (http://johnmacfarlane.net/pandoc/), which does not support CSV as an input format.
+This can be useful when using [Pandoc](http://johnmacfarlane.net/pandoc/), which does not support CSV as an input format.
 
 The program uses input and output streams throughout so that the content does not have to be kept in memory.
 
