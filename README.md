@@ -7,12 +7,11 @@ This can be useful when using [Pandoc](http://johnmacfarlane.net/pandoc/), which
 
 The program uses input and output streams throughout so that the content does not have to be kept in memory.
 
-### Installation
+## Installation
 
 ```
 composer install
 ```
---------------
 
 Usage examples
 --------------
