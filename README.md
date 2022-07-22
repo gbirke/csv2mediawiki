@@ -10,7 +10,7 @@ The program uses input and output streams throughout so that the content does no
 ## Installation
 
 ```
-composer install
+$ composer install
 ```
 
 Usage examples
